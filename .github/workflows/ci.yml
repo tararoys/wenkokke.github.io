@@ -39,7 +39,7 @@ jobs:
         id: setup-haskell
         with:
           ghc-version: ${{ matrix.ghc }}
-          cabal-version: ${{ matrix.cabal }}
+          cabal-version: ${{ matrix.cabal }} 
 
       - name: Cabal freeze
         run: |
@@ -64,7 +64,15 @@ jobs:
             dist-newstyle
           key: ${{ matrix.os }}-GHC-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
           restore-keys: ${{ matrix.os }}-GHC-${{ matrix.ghc }}-
-
+                 
+      - name: Setup Agda
+        run: |
+          cabal v2-install $CABAL_ARGS Agda
+          
+      - name: Setup Pandoc
+        run: |
+          cabal v2-install $CABAL_ARGS pandoc
+          
       - name: Build website
         run: make build
 
