@@ -70,3 +70,9 @@ jobs:
 
       - name: Test website
         run: make test
+        
+      - name: Deploy website
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: main
+          folder: _site
