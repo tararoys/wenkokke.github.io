@@ -109,10 +109,10 @@ html {
 
 /* About section */
 .sidebar-about {
-  color: #fff;
-  margin-top: 0;
-  font-family: "Roboto Slab", serif;
-  font-size: 1.5rem;
+  /* color: #fff; */
+  /* margin-top: 0; */
+  /* font-family: "Roboto Slab", serif; */
+  font-size: 0.5rem;
 }
 
 /* Sidebar nav */
