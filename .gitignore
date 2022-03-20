@@ -1,7 +1,0 @@
-_cache
-_site
-node_modules
-dist-newstyle
-agda-stdlib
-Gemfile.lock
-package-lock.json
