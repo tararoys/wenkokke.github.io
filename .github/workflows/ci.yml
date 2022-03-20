@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - dev
+      - dev-debug
   pull_request:
     types:
       - opened
