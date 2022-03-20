@@ -108,7 +108,7 @@ html {
 }
 
 /* About section */
-.sidebar-about h1 {
+.sidebar-about {
   color: #fff;
   margin-top: 0;
   font-family: "Roboto Slab", serif;
