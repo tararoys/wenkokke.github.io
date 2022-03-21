@@ -86,7 +86,7 @@ class Section(AbstractContextManager):
                     capture_pattern = re.sub(r'{self.([^}^\s]+)}', r'<a href="#user-\1_list">  {self.\1}  </a>', capture_pattern)
                     print(capture_pattern)
                 
-                final_string = capture_pattern.replace("_", "-")
+                final_string = capture_pattern.replace("_", "-") ## this replacement makes the links work but also replaces the underscores in the display name, making them incorrect.
 
                 row.cell(final_string, **kwargs)
 
