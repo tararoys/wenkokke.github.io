@@ -87,8 +87,8 @@ class Section(AbstractContextManager):
                     print(capture_pattern)
                 
                 final_string = capture_pattern.replace("_", "-") ## this replacement makes the links work but also replaces the underscores in the display name, making them incorrect.
-
-                row.cell(final_string, **kwargs)
+                final_string_1 = final_string.replace("|", " | ")
+                row.cell(final_string_1, **kwargs)
 
     def formatters(self, **kwargs) -> None:
         """

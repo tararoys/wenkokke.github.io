@@ -47,8 +47,11 @@ class CheatSheetActions:
 #                    list_name="user.symbol_key",
 #                )
                 for talon_list_name, talon_list in registry.lists.items():
-                    if "user" in talon_list_name:
-                        sec.list(list_name=talon_list_name)
+                    print("----------------------------------------------------\n")
+                    print("length: " + str(len(talon_list[0])))
+                    if len(talon_list[0]) < 100 :
+                        if "user" in talon_list_name:
+                            sec.list(list_name=talon_list_name)
             with doc.section(cols=2, css_classes="talon-captures") as sec:
 #                sec.list(
 #                    list_name="user.symbol_key",
