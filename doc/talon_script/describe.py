@@ -61,7 +61,15 @@ class Describe(TalonScriptWalker):
 
     @staticmethod
     def command_rule(command: CommandImpl) -> str:
-        return re.sub(Describe.RuleRegexDel, "", command.rule.rule)
+        #return re.sub(Describe.RuleRegexDel, "", command.rule.rule)
+        rule = command.rule.rule
+        if re.search(r'{user.([^}^\s]+)}', rule):
+            print(rule)
+            temp = rule.split('_')
+            rule = '-'.join(temp)
+            rule = re.sub(r'{user.([^}^\s]+)}', r'<a href="#user-\1-list"> {user.\1} </a>', rule)
+            print(rule)
+        return rule
 
     # Describing actions
 

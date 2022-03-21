@@ -9,10 +9,10 @@ import re
 
 def html_escape(text: str) -> str:
     return (
-        text.replace("&", "&amp;")
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
-        .replace("\n", "\n<br />\n")
+        re.sub(r"<user.([-\w]+)>", r"&ltuser.\1&gt", text.replace(r"<phrase>", r"&ltphrase&gt")
+        .replace(r"<number>", r"&ltnumber&gt")
+        .replace(r"<number_small>", r"&ltnumber_small&gt")
+        .replace("\n", "\n<br />\n"))
     )
 
 
