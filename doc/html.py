@@ -4,6 +4,7 @@ from typing import *
 from collections.abc import Iterable
 from user.cheatsheet.doc.abc import *
 import os
+import re
 
 
 def html_escape(text: str) -> str:
@@ -37,6 +38,16 @@ def attr_colspan(kwargs) -> str:
     else:
         return ""
 
+def attr_id(kwargs)->str:
+    if "title" in kwargs:
+        id = kwargs['title']
+        print(id)
+        id=re.sub(r'[\(\)_,.?!\t\n ]+', '-', id)
+        print(id)
+        return f" id=\"{id}\""
+    else:
+        return ""
+
 
 class HtmlRow(Row):
     def __init__(self, file: TextIOWrapper, **kwargs):
@@ -67,7 +78,7 @@ class HtmlTable(Table):
             self.file.write(f"<thead>")
             self.file.write(f"<tr>")
             self.file.write(
-                f"<th{attr_colspan(self.kwargs)}>{html_escape(self.kwargs['title'])}</th>"
+                f"<th{attr_colspan(self.kwargs)}{attr_id(self.kwargs)}>{html_escape(self.kwargs['title'])}</th>"
             )
             self.file.write(f"</tr>")
             self.file.write(f"</thead>")

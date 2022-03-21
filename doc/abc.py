@@ -36,7 +36,7 @@ class Section(AbstractContextManager):
         """
 
         # Set the default title based on the list name:
-        kwargs["title"] = kwargs.get("title", list_name)
+        kwargs["title"] = kwargs.get("title", list_name) + " list"
 
         with self.table(cols=2, **kwargs) as table:
             for key, value in registry.lists[list_name][0].items():
